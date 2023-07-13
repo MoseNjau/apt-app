@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Members {% endblock %}
+{% block content %}
+<h1>Member</h1>
+<ul style="list-style:none;display:flex;">
+    {% for member in members %}
+    <li style="margin:30px;padding: 10pxl; background: green;">
+        name: {{member.fname}} {{member.lname}}<br>
+        email:{{member.email}}<br>
+        position: {{member.position}}<br>
+    </li>
+    {% endfor %}
+
+</ul>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type= "submit">Submit</button>
+    
+</form>
+{% endblock %}
